@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" />
   <link rel="icon" href="images/favicon.png" type="image/png" />
-  <title>Ali Abdelkader Foulaty</title>
+  <title>Ali Foulaty | Développeur Web Full-Stack</title>
 </head>
 <body>
 
@@ -15,7 +15,7 @@
   <header class="header-1">
     <nav class="nav bd-grid">
       <div>
-        <a href="#" class="nav__logo" aria-label="Retour à l'accueil"><span>F</span>oulaty</a>
+        <a href="#" class="nav__logo" ><span>F</span>oulaty</a>
       </div>
 
       <div class="nav__menu" id="nav-menu">
@@ -36,32 +36,35 @@
 
   <!-- ===== MAIN ===== -->
   <main class="main-section">
-    <header> 
-       <h1 class="home__title"> <br>Ali Abdelkader <span class="home__title-color">Foulaty <br><h1>Développeur Web Full-Stack</h1></span></h1>
-      
-      </header>
-        
+    <header><h1 class="home__title"> <br>Ali Abdelkader <span class="home__title-color">Foulaty <br><h1>Développeur Web Full-Stack</h1></span></h1>
+    </header>
 
     <!-- ===== ACCUEIL ===== -->
-        <div class="about__img">
-          <img src="Foulaty1.jpg" alt="Portrait de Foulaty, développeur web" />
-        <div>
-          <p class="about__text">
-            Développeur passionné par la création d'interfaces modernes, performantes et accessibles. Je conçois des solutions web sur mesure, avec une attention particulière à l'expérience utilisateur et à la qualité du code.
-          </p>
-        </div>
     <section class="home bd-grid" id="home">
       <div class="home__data">
+        <a href="#contact" class="button">Contact</a>
+
+        <div class="home__social">
+          <a href="#" class="home__social-icon" aria-label="Facebook"><i class="bx bxl-facebook-circle"></i></a>
+          <a href="#" class="home__social-icon" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+          <a href="#" class="home__social-icon" aria-label="GitHub"><i class="bx bxl-github"></i></a>
+        </div>
+      </div>
+
+      <div class="home__img">
+        <img src="images/Ali3.JPG" alt="Portrait de Ali Abdelkader Foulaty" />
       </div>
     </section>
 
     <!-- ===== À PROPOS ===== -->
     <section class="about section" id="about">
       <h2 class="section-title">À propos</h2>
+
       <div class="about__container bd-grid">
         <div class="about__img">
           <img src="Foulaty1.jpg" alt="Portrait de Foulaty, développeur web" />
         </div>
+
         <div>
           <h3 class="about__subtitle">Je suis Ali Abdelkader Foulaty</h3>
           <p class="about__text">
@@ -74,6 +77,7 @@
     <!-- ===== COMPÉTENCES ===== -->
     <section class="skills section" id="skills">
       <h2 class="section-title">Compétences</h2>
+
       <div class="skills__container bd-grid">
         <div>
           <h3 class="skills__subtitle">Mes compétences professionnelles</h3>
@@ -116,10 +120,19 @@
     <section class="work section" id="work">
       <h2 class="section-title">Réalisations</h2>
       <div class="work__container bd-grid">
-        <div class="work__img"><img src="Ali3.jpg" alt="Projet 1 - capture d'écran" /></div>
-        <div class="work__img"><img src="Ali3.jpg" alt="Projet 2 - capture d'écran" /></div>
-        <div class="work__img"><img src="Foulaty1.jpg" alt="Projet 3 - capture d'écran" /></div>
-        <div class="work__img"><img src="Foulaty1.jpg" alt="Projet 4 - capture d'écran" /></div>
+        <!-- Remplace ces images par de vrais projets -->
+        <div class="work__img">
+          <img src="Ali.jpg" alt="Projet 1 - capture d'écran" />
+        </div>
+        <div class="work__img">
+          <img src="Ali.jpg" alt="Projet 2 - capture d'écran" />
+        </div>
+        <div class="work__img">
+          <img src="Ali.jpg" alt="Projet 3 - capture d'écran" />
+        </div>
+        <div class="work__img">
+          <img src="Ali.jpg" alt="Projet 4 - capture d'écran" />
+        </div>
       </div>
     </section>
 
@@ -127,17 +140,10 @@
     <section class="contact section" id="contact">
       <h2 class="section-title">Contact</h2>
       <div class="contact__container bd-grid">
-        <form action="https://formspree.io/f/TON_ID" method="POST" class="contact__form">
+        <form action="#" method="post" class="contact__form">
           <input type="text" name="name" placeholder="Nom" class="contact__input" required>
           <input type="email" name="email" placeholder="Email" class="contact__input" required>
           <textarea name="message" placeholder="Votre message" rows="10" class="contact__input" required></textarea>
-
-          <!-- Anti-spam -->
-          <input type="text" name="_gotcha" style="display: none;">
-
-          <!-- Message affiché par JS -->
-          <p id="form-message" class="form-message" style="display: none;"></p>
-
           <input type="submit" value="Envoyer" class="contact__button button">
         </form>
       </div>
@@ -159,5 +165,6 @@
   <!-- ===== SCRIPTS ===== -->
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="script.js"></script>
+
 </body>
 </html>
