@@ -131,12 +131,22 @@
     <section class="contact section" id="contact">
       <h2 class="section-title">Contact</h2>
       <div class="contact__container bd-grid">
-        <form action="#" method="post" class="contact__form">
-          <input type="text" name="name" placeholder="Nom" class="contact__input" required>
-          <input type="email" name="email" placeholder="Email" class="contact__input" required>
-          <textarea name="message" placeholder="Votre message" rows="10" class="contact__input" required></textarea>
-          <input type="submit" value="Envoyer" class="contact__button button">
-        </form>
+       <form action="https://formsubmit.co/aliabdelkader4@gmail.com" method="POST" class="contact__form">
+  <!-- Anti-spam : champ caché -->
+  <input type="text" name="_honey" style="display:none">
+
+  <!-- Désactiver CAPTCHA de Formsubmit (facultatif) -->
+  <input type="hidden" name="_captcha" value="false">
+
+  <!-- Redirection personnalisée après envoi -->
+  <input type="hidden" name="_next" value="https://tonsite.com/merci.html">
+
+  <input type="text" name="name" placeholder="Nom" class="contact__input" required>
+  <input type="email" name="email" placeholder="Email" class="contact__input" required>
+  <textarea name="message" placeholder="Votre message" rows="10" class="contact__input" required></textarea>
+  <input type="submit" value="Envoyer" class="contact__button button">
+</form>
+
       </div>
     </section>
   </main>
