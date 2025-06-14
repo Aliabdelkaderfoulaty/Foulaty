@@ -1,4 +1,4 @@
-// Fonction pour afficher ou masquer le menu mobile
+// === FONCTION POUR AFFICHER / MASQUER LE MENU MOBILE ===
 const showMenu = (toggleId, navId) => {
   const toggle = document.getElementById(toggleId);
   const nav = document.getElementById(navId);
@@ -10,31 +10,29 @@ const showMenu = (toggleId, navId) => {
   }
 };
 
-// Appel de la fonction pour activer le menu mobile
+// Initialisation du menu mobile
 showMenu('nav-toggle', 'nav-menu');
 
-// Sélection de tous les liens de navigation
+// === LIENS DE NAVIGATION ===
 const navLinks = document.querySelectorAll('.nav__link');
 
-// Fonction qui gère le clic sur un lien
+// Fonction qui gère l'action lors du clic sur un lien
 const linkAction = function () {
-  // Supprime 'active' de tous les liens
+  // Supprime la classe 'active' de tous les liens
   navLinks.forEach(link => link.classList.remove('active'));
 
-  // Ajoute 'active' au lien cliqué
+  // Ajoute la classe 'active' au lien cliqué
   this.classList.add('active');
 
-  // Masquer le menu après le clic (sur mobile)
+  // Ferme le menu sur mobile après clic
   const navMenu = document.getElementById('nav-menu');
-  if (navMenu.classList.contains('show')) {
-    navMenu.classList.remove('show');
-  }
+  navMenu.classList.remove('show');
 };
 
-// Ajout d’un écouteur sur chaque lien de navigation
+// Ajoute l’événement clic à chaque lien
 navLinks.forEach(link => link.addEventListener('click', linkAction));
 
-// === ScrollReveal Animations ===
+// === ANIMATIONS AVEC SCROLLREVEAL ===
 const sr = ScrollReveal({
   origin: 'top',
   distance: '80px',
@@ -42,26 +40,26 @@ const sr = ScrollReveal({
   reset: true,
 });
 
-// Révélations pour la section home
+// Animations pour la section Home
 sr.reveal('.home__title');
-sr.reveal('.button', { delay: 200 });
+sr.reveal('.home__text', { delay: 200 });
 sr.reveal('.home__subtitle', { delay: 200 });
 sr.reveal('.home__img', { delay: 400 });
-sr.reveal('.home__social-icon', { interval: 200 });
+sr.reveal('.section-title', { interval: 200 });
 
-// Révélations pour la section about
+// Section About
 sr.reveal('.about__img');
 sr.reveal('.about__subtitle', { delay: 200 });
 sr.reveal('.about__text', { delay: 400 });
 
-// Révélations pour la section skills
+// Section Skills
 sr.reveal('.skills__subtitle');
 sr.reveal('.skills__text', { delay: 200 });
 sr.reveal('.skills__data', { interval: 200 });
 sr.reveal('.skills__img', { delay: 400 });
 
-// Révélations pour la section work
+// Section Work
 sr.reveal('.work__img', { interval: 200 });
 
-// Révélations pour la section contact
+// Section Contact
 sr.reveal('.contact__input', { interval: 200 });
