@@ -1,4 +1,13 @@
-// === FONCTION POUR AFFICHER / MASQUER LE MENU MOBILE ===
+// ===== Chargement de la page : Loader =====
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  setTimeout(() => {
+    loader.style.opacity = '0';
+    loader.style.visibility = 'hidden';
+  }, 1500); // Durée d’affichage du loader
+});
+
+// ===== Menu mobile (toggle) =====
 const showMenu = (toggleId, navId) => {
   const toggle = document.getElementById(toggleId);
   const nav = document.getElementById(navId);
@@ -9,57 +18,56 @@ const showMenu = (toggleId, navId) => {
     });
   }
 };
-
-// Initialisation du menu mobile
 showMenu('nav-toggle', 'nav-menu');
 
-// === LIENS DE NAVIGATION ===
+// ===== Changement d’état des liens dans le menu =====
 const navLinks = document.querySelectorAll('.nav__link');
+navLinks.forEach(link =>
+  link.addEventListener('click', function () {
+    navLinks.forEach(l => l.classList.remove('active'));
+    this.classList.add('active');
 
-// Fonction qui gère l'action lors du clic sur un lien
-const linkAction = function () {
-  // Supprime la classe 'active' de tous les liens
-  navLinks.forEach(link => link.classList.remove('active'));
+    // Fermer le menu mobile après clic (utile en responsive)
+    document.getElementById('nav-menu').classList.remove('show');
+  })
+);
 
-  // Ajoute la classe 'active' au lien cliqué
-  this.classList.add('active');
+// ===== Thème sombre / clair =====
+const themeToggle = document.createElement('button');
+themeToggle.textContent = '🌙';
+themeToggle.className = 'theme-toggle';
+document.body.appendChild(themeToggle);
 
-  // Ferme le menu sur mobile après clic
-  const navMenu = document.getElementById('nav-menu');
-  navMenu.classList.remove('show');
-};
+// Appliquer thème sauvegardé
+if (localStorage.getItem('theme') === 'light') {
+  document.body.classList.add('light-theme');
+  themeToggle.textContent = '☀️';
+}
 
-// Ajoute l’événement clic à chaque lien
-navLinks.forEach(link => link.addEventListener('click', linkAction));
-
-// === ANIMATIONS AVEC SCROLLREVEAL ===
-const sr = ScrollReveal({
-  origin: 'top',
-  distance: '80px',
-  duration: 2000,
-  reset: true,
+// Toggle au clic
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light-theme');
+  const isLight = document.body.classList.contains('light-theme');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  themeToggle.textContent = isLight ? '☀️' : '🌙';
 });
 
-// Animations pour la section Home
-sr.reveal('.home__title');
-sr.reveal('.home__text', { delay: 200 });
-sr.reveal('.home__subtitle', { delay: 200 });
-sr.reveal('.home__img', { delay: 400 });
-sr.reveal('.section-title', { interval: 200 });
+// ===== Animation au scroll (sans ScrollReveal) =====
+const reveals = document.querySelectorAll('.reveal');
 
-// Section About
-sr.reveal('.about__img');
-sr.reveal('.about__subtitle', { delay: 200 });
-sr.reveal('.about__text', { delay: 400 });
+function scrollReveal() {
+  const windowHeight = window.innerHeight;
+  const revealPoint = 150;
 
-// Section Skills
-sr.reveal('.skills__subtitle');
-sr.reveal('.skills__text', { delay: 200 });
-sr.reveal('.skills__data', { interval: 200 });
-sr.reveal('.skills__img', { delay: 400 });
+  reveals.forEach(reveal => {
+    const revealTop = reveal.getBoundingClientRect().top;
+    if (revealTop < windowHeight - revealPoint) {
+      reveal.classList.add('active');
+    } else {
+      reveal.classList.remove('active');
+    }
+  });
+}
 
-// Section Work
-sr.reveal('.work__img', { interval: 200 });
-
-// Section Contact
-sr.reveal('.contact__input', { interval: 200 });
+window.addEventListener('scroll', scrollReveal);
+window.addEventListener('load', scrollReveal);
