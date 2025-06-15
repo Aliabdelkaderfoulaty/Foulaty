@@ -1,67 +1,58 @@
 // ===== MENU MOBILE =====
-const showMenu = (toggleId, navId) => {
-  const toggle = document.getElementById(toggleId),
-        nav = document.getElementById(navId);
+const toggle = document.getElementById('nav-toggle');
+const nav = document.getElementById('nav-menu');
 
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      nav.classList.toggle('show');
-    });
-  }
-};
+if (toggle && nav) {
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('show');
+  });
+}
 
-showMenu('nav-toggle', 'nav-menu');
-
-// ===== CACHER LE MENU APRÈS SÉLECTION =====
-const navLinks = document.querySelectorAll('.nav__link');
-navLinks.forEach(link => {
+// ===== FERMER LE MENU APRÈS SÉLECTION =====
+document.querySelectorAll('.nav__link').forEach(link => {
   link.addEventListener('click', () => {
-    document.getElementById('nav-menu').classList.remove('show');
+    nav.classList.remove('show');
   });
 });
 
-// ===== SCROLLREVEAL (LOCAL) =====
+// ===== SCROLLREVEAL (VERSION LOCALE) =====
 const sr = ScrollReveal({
   origin: 'top',
   distance: '50px',
   duration: 1000,
   delay: 200,
-  reset: false
+  reset: false 
 });
 
-// Animations déclenchées au scroll
-sr.reveal('.section-title', {});
+sr.reveal('.section-title');
 sr.reveal('.home__subtitle', { delay: 300 });
 sr.reveal('.home__text', { delay: 400 });
-sr.reveal('.ahome__img', { delay: 500 });
-
-sr.reveal('.about__img', {});
+sr.reveal('.home__img', { delay: 500 }); 
+sr.reveal('.about__img');
 sr.reveal('.about__subtitle', { delay: 200 });
 sr.reveal('.about__text', { delay: 300 });
-
-sr.reveal('.skills__subtitle', {});
+sr.reveal('.skills__subtitle');
 sr.reveal('.skills__data', { interval: 100 });
 sr.reveal('.skills__img', { delay: 500 });
-
 sr.reveal('.work__img', { interval: 200 });
-
 sr.reveal('.contact__form', { delay: 200 });
 
-// ===== LINK ACTIF EN SCROLL =====
+// ===== LIEN ACTIF DANS LE MENU AU SCROLL =====
 window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('section[id]');
   const scrollY = window.pageYOffset;
 
-  sections.forEach(sec => {
-    const top = sec.offsetTop - 50;
-    const bottom = top + sec.offsetHeight;
-    const link = document.querySelector('.nav__menu a[href*=' + sec.id + ']');
+  document.querySelectorAll('section[id]').forEach(section => {
+    const sectionTop = section.offsetTop - 50;
+    const sectionHeight = section.offsetHeight;
+    const sectionId = section.getAttribute('id');
+    const link = document.querySelector(`.nav__menu a[href="#${sectionId}"]`);
 
-    if (!link) return;
-    if (scrollY > top && scrollY <= bottom) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
+    if (link) {
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
     }
   });
 });
