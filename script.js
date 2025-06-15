@@ -1,16 +1,7 @@
-// ===== Chargement de la page : Loader =====
-window.addEventListener('load', () => {
-  const loader = document.getElementById('loader');
-  setTimeout(() => {
-    loader.style.opacity = '0';
-    loader.style.visibility = 'hidden';
-  }, 1500); // Durée d’affichage du loader
-});
-
-// ===== Menu mobile (toggle) =====
+// ======= MENU MOBILE =======
 const showMenu = (toggleId, navId) => {
-  const toggle = document.getElementById(toggleId);
-  const nav = document.getElementById(navId);
+  const toggle = document.getElementById(toggleId),
+        nav = document.getElementById(navId);
 
   if (toggle && nav) {
     toggle.addEventListener('click', () => {
@@ -18,56 +9,64 @@ const showMenu = (toggleId, navId) => {
     });
   }
 };
+
 showMenu('nav-toggle', 'nav-menu');
 
-// ===== Changement d’état des liens dans le menu =====
-const navLinks = document.querySelectorAll('.nav__link');
-navLinks.forEach(link =>
-  link.addEventListener('click', function () {
-    navLinks.forEach(l => l.classList.remove('active'));
-    this.classList.add('active');
+// ======= CACHER LE MENU MOBILE LORS DU CLIC SUR UN LIEN =======
+const navLink = document.querySelectorAll('.nav__link');
 
-    // Fermer le menu mobile après clic (utile en responsive)
-    document.getElementById('nav-menu').classList.remove('show');
-  })
-);
-
-// ===== Thème sombre / clair =====
-const themeToggle = document.createElement('button');
-themeToggle.textContent = '🌙';
-themeToggle.className = 'theme-toggle';
-document.body.appendChild(themeToggle);
-
-// Appliquer thème sauvegardé
-if (localStorage.getItem('theme') === 'light') {
-  document.body.classList.add('light-theme');
-  themeToggle.textContent = '☀️';
+function linkAction() {
+  const navMenu = document.getElementById('nav-menu');
+  navMenu.classList.remove('show');
 }
 
-// Toggle au clic
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('light-theme');
-  const isLight = document.body.classList.contains('light-theme');
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  themeToggle.textContent = isLight ? '☀️' : '🌙';
+navLink.forEach(n => n.addEventListener('click', linkAction));
+
+// ======= SCROLLREVEAL ANIMATIONS =======
+const sr = ScrollReveal({
+  origin: 'top',
+  distance: '50px',
+  duration: 1000,
+  delay: 200,
+  reset: false // Ne réinitialise pas l’animation après scroll
 });
 
-// ===== Animation au scroll (sans ScrollReveal) =====
-const reveals = document.querySelectorAll('.reveal');
+// Accueil
+sr.reveal('.ahome .section-title', {});
+sr.reveal('.home__subtitle', { delay: 300 });
+sr.reveal('.home__text', { delay: 400 });
+sr.reveal('.ahome__img', { delay: 500 });
 
-function scrollReveal() {
-  const windowHeight = window.innerHeight;
-  const revealPoint = 150;
+// À propos
+sr.reveal('.about__img', {});
+sr.reveal('.about__subtitle', { delay: 200 });
+sr.reveal('.about__text', { delay: 300 });
 
-  reveals.forEach(reveal => {
-    const revealTop = reveal.getBoundingClientRect().top;
-    if (revealTop < windowHeight - revealPoint) {
-      reveal.classList.add('active');
+// Compétences
+sr.reveal('.skills__subtitle', {});
+sr.reveal('.skills__data', { interval: 100 });
+sr.reveal('.skills__img', { delay: 500 });
+
+// Réalisations
+sr.reveal('.work__img', { interval: 200 });
+
+// Contact
+sr.reveal('.contact__form', { delay: 200 });
+
+// ======= ACTIVE LINK NAVIGATION (facultatif) =======
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('section[id]');
+  const scrollY = window.pageYOffset;
+
+  sections.forEach(current => {
+    const sectionHeight = current.offsetHeight;
+    const sectionTop = current.offsetTop - 50;
+    const sectionId = current.getAttribute('id');
+
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active');
     } else {
-      reveal.classList.remove('active');
+      document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active');
     }
   });
-}
-
-window.addEventListener('scroll', scrollReveal);
-window.addEventListener('load', scrollReveal);
+});
