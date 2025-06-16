@@ -15,15 +15,6 @@ document.querySelectorAll('.nav__link').forEach(link => {
   });
 });
 
-// ===== ANIMATION DE CHARGEMENT =====
-window.addEventListener('load', () => {
-  const loader = document.getElementById('loader');
-  if (loader) {
-    loader.style.opacity = '0';
-    loader.style.visibility = 'hidden';
-  }
-});
-
 // ===== SCROLLREVEAL (VERSION LOCALE) =====
 if (typeof ScrollReveal !== 'undefined') {
   const sr = ScrollReveal({
