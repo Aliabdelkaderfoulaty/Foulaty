@@ -376,7 +376,7 @@ ul {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .bd-grid {
     margin-left: auto;
     margin-right: auto;
