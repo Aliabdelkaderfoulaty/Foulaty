@@ -128,9 +128,6 @@ ul {
   cursor: pointer;
   color: var(--blanche);
 }
-.show {
-  right: 0;
-}
 
 /* === ACCUEIL === */
 .ahome__img {
@@ -361,11 +358,12 @@ ul {
 }
 
 @media screen and (min-width: 768px) {
-  .about__container,
+    .about__container,
   .skills__container {
-    --big-font-size: 3.5rem;
-    --h2-font-size: 2rem;
-    --normal-font-size: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    text-align: initial;
   }
 
   .about__img img {
