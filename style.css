@@ -358,7 +358,11 @@ ul {
 }
 
 @media screen and (min-width: 768px) {
-    .about__container,
+    .bd-grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .about__container,
   .skills__container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
