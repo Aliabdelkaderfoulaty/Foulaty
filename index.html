@@ -4,18 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Portfolio de Ali Abdelkader Foulaty, développeur web full-stack." />
+  <meta name="author" content="Ali Abdelkader Foulaty" />
+  <title>Ali Abdelkader Foulaty | Développeur Web Full-Stack</title>
+
+  <!-- Feuilles de style -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" />
-  <link rel="icon" href="images/favicon.png" type="image/png" />
-  <title>Ali Foulaty | Développeur Web Full-Stack</title>
 </head>
 <body>
 
   <!-- ===== HEADER ===== -->
   <header class="header-1">
-    <nav class="nav bd-grid" role="navigation">
+    <nav class="nav bd-grid" role="navigation" aria-label="Menu principal">
       <div>
-        <a href="#" class="nav__logo"><span>F</span>oulaty</a>
+        <a href="#" class="nav__logo" aria-label="Retour à l’accueil"><span>F</span>oulaty</a>
       </div>
 
       <div class="nav__menu" id="nav-menu">
@@ -28,34 +30,30 @@
         </ul>
       </div>
 
-      <div class="nav__toggle" id="nav-toggle" aria-label="Ouvrir le menu">
+      <button class="nav__toggle" id="nav-toggle" aria-label="Ouvrir le menu">
         <i class="bx bx-menu"></i>
-      </div>
+      </button>
     </nav>
   </header>
 
   <!-- ===== MAIN ===== -->
-  <main class="main-section">
+  <main id="main-content">
 
     <!-- ===== ACCUEIL ===== -->
-    <section class="home bd-grid" id="home" aria-label="Section Accueil">
-      <div class="home__data">
-        <h1 class="home__title">
-          Ali Abdelkader <span class="home__title-color">Foulaty</span>
-        </h1>
-        <h2 class="home__subtitle">Développeur Web</h2>
+    <section class="ahome section" id="home" aria-label="Section Accueil">
+      <h1 class="section-title">Ali Abdelkader Foulaty</h1>
 
-        <a href="#contact" class="button">Contact</a>
-
-        <div class="home__social">
-          <a href="#" class="home__social-icon" aria-label="Facebook"><i class="bx bxl-facebook-circle"></i></a>
-          <a href="#" class="home__social-icon" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
-          <a href="#" class="home__social-icon" aria-label="GitHub"><i class="bx bxl-github"></i></a>
+      <div class="home__container bd-grid">
+        <div>
+          <h2 class="home__subtitle">Développeur Web Full-Stack</h2>
+          <p class="home__text">
+            Avec plus de 4 ans d'expérience dans la conception de solutions numériques, et grâce à la formation DCLIC Francophonie, j’ai acquis de solides bases sur les différentes phases de création d’un site web moderne.
+          </p>
         </div>
-      </div>
 
-      <div class="home__img">
-        <img src="images/Foulaty1.jpg" alt="Ali Abdelkader Foulaty, développeur web" />
+        <div>
+          <img src="images/Ali3.jpg" alt="Photo de Ali Abdelkader Foulaty" class="ahome__img" loading="lazy" />
+        </div>
       </div>
     </section>
 
@@ -65,7 +63,7 @@
 
       <div class="about__container bd-grid">
         <div class="about__img">
-          <img src="images/Ali3.jpg" alt="Portrait de Ali Foulaty" />
+          <img src="images/Foulaty1.jpg" alt="Portrait de Ali Foulaty" loading="lazy" />
         </div>
 
         <div>
@@ -114,7 +112,7 @@
         </div>
 
         <div>
-          <img src="images/Ali2.JPG" alt="Illustration des compétences de Foulaty" class="skills__img" />
+          <img src="images/Ali2.JPG" alt="Image illustrant les compétences de Foulaty" loading="lazy" />
         </div>
       </div>
     </section>
@@ -123,23 +121,49 @@
     <section class="work section" id="work">
       <h2 class="section-title">Réalisations</h2>
       <div class="work__container bd-grid">
-        <div class="work__img"><img src="images/foulaty.com.png" alt="Projet 1 - capture d’écran" /></div>
-        <div class="work__img"><img src="images/realites.png" alt="Projet 2 - capture d’écran" /></div>
-        <div class="work__img"><img src="images/flashtchad.png" alt="Projet 3 - capture d’écran" /></div>
-        <div class="work__img"><img src="images/alwassat.png" alt="Projet 4 - capture d’écran" /></div>
-        <div class="work__img"><img src="images/baladi.png" alt="Projet 5 - capture d’écran" /></div>
-        <div class="work__img"><img src="images/alwatan.png" alt="Projet 6 - capture d’écran" /></div>
+        <!-- Répété pour chaque projet -->
+        <div class="work__img">
+          <img src="images/foulaty.com.png" alt="Capture d’écran du site foulaty.com" loading="lazy" />
+          <h5><a href="https://foulaty.com" target="_blank" rel="noopener noreferrer">Voir le projet</a></h5>
+        </div>
+        <!-- Ajoute les autres projets ici -->
+        <div class="work__img">
+          <img src="images/realites.png" alt="Capture d’écran du site Réalités" loading="lazy" />
+          <h5><a href="https://realitesinfo.com" target="_blank" rel="noopener noreferrer">Voir le projet</a></h5>
+        </div>
+        <div class="work__img">
+          <img src="images/flashtchad.png" alt="Capture d’écran du site Flash Tchad" loading="lazy" />
+          <h5><a href="https://flashtchad.com" target="_blank" rel="noopener noreferrer">Voir le projet</a></h5>
+        </div>
+        <div class="work__img">
+          <img src="images/alwassat.png" alt="Capture d’écran du site Al Wassat" loading="lazy" />
+          <h5><a href="https://alwassatinfos.com" target="_blank" rel="noopener noreferrer">Voir le projet</a></h5>
+        </div>
+        <div class="work__img">
+          <img src="images/baladi.png" alt="Capture d’écran du site Baladi" loading="lazy" />
+          <h5><a href="https://baladi-infos.com" target="_blank" rel="noopener noreferrer">Voir le projet</a></h5>
+        </div>
+        <div class="work__img">
+          <img src="images/alwatan.png" alt="Capture d’écran du site Al Watan" loading="lazy" />
+          <h5><a href="https://alwatanmedias.com" target="_blank" rel="noopener noreferrer">Voir le projet</a></h5>
+        </div>
       </div>
     </section>
 
     <!-- ===== CONTACT ===== -->
     <section class="contact section" id="contact">
       <h2 class="section-title">Contact</h2>
+
       <div class="contact__container bd-grid">
-        <form action="#" method="post" class="contact__form">
-          <input type="text" name="name" placeholder="Nom" class="contact__input" required>
-          <input type="email" name="email" placeholder="Email" class="contact__input" required>
-          <textarea name="message" placeholder="Votre message" rows="10" class="contact__input" required></textarea>
+        <form action="https://formsubmit.co/aliabdelkader4@gmail.com" method="POST" class="contact__form">
+          <input type="hidden" name="_honey">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://aliabdelkaderfoulaty.github.io/Foulaty/merci.html">
+
+          <input type="text" name="name" placeholder="Nom" class="contact__input" required aria-label="Nom">
+          <input type="email" name="email" placeholder="Email" class="contact__input" required aria-label="Email">
+          <textarea name="message" placeholder="Votre message" rows="10" class="contact__input" required aria-label="Message"></textarea>
+
           <input type="submit" value="Envoyer" class="contact__button button">
         </form>
       </div>
@@ -150,17 +174,16 @@
   <footer class="footer">
     <p class="footer__title">Foulaty</p>
     <div class="footer__social">
-      <a href="#" class="footer__icon" aria-label="Facebook"><i class="bx bxl-facebook-circle"></i></a>
-      <a href="#" class="footer__icon" aria-label="Instagram"><i class="bx bxl-instagram"></i></a>
-      <a href="#" class="footer__icon" aria-label="Twitter"><i class="bx bxl-twitter"></i></a>
-      <a href="#" class="footer__icon" aria-label="LinkedIn"><i class="bx bxl-linkedin-square"></i></a>
+      <a href="https://www.facebook.com/aliabdelkaderfoulaty" aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="https://twitter.com/aliabdelkader00" aria-label="Twitter"><i class="bx bxl-twitter"></i></a>
+      <a href="https://www.instagram.com/aliabdelkaderfoulaty11" aria-label="Instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/aliabdelkaderfoulaty" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
     </div>
     <p>&copy; 2025 Ali Abdelkader Foulaty. Tous droits réservés.</p>
   </footer>
 
   <!-- ===== SCRIPTS ===== -->
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="scrollreveal.min.js"></script>
   <script src="script.js"></script>
-
 </body>
 </html>
